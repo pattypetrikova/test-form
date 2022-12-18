@@ -1,0 +1,322 @@
+/* ----------- RESET -------- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+}
+
+:root {
+  /* -------- COLORS--------- */
+  --black:
+  rgba(0, 0, 0, 1);
+  --charade:
+  rgba(41, 45, 51, 1);
+  --gravel:
+  rgba(71, 71, 71, 1);
+  --stack:
+  rgba(140, 139, 139, 1);
+  --red:
+  rgba(255, 0, 0, 1);
+  --cardinal:
+  rgba(212, 30, 34, 1);
+  --bon-jour:
+  rgba(225, 225, 225, 1);
+  --concrete:
+  rgba(243, 243, 243, 1);
+  --white:
+  rgba(255, 255, 255, 1);
+  /* -------- FONT SIZE SYSTEM --------- */
+  --font-size-description: 14px;
+  --font-size-page: 16px;
+  --font-size-subtitle: 18px;
+  --font-size-demand: 24px;
+  --font-size-title: 30px;
+  --font-size-big: 36px;
+  --font-size-hero: 46px;
+  --font-size-xxxxxl: 72px;
+  --font-size-xxxl2: 24px;
+  /* -------- FONTS SYSTEM --------- */
+  --font-family-anton: "Anton";
+  --font-family-roboto: "Roboto";
+  /* -------- SPACING SYSTEM MARGIN --------- */
+  --m-top: 100px;
+  --m-bottom: 140px;
+  --m-bottom-large: 300px;
+  --m-xs: 6px;
+  --m-s: 15px;
+  --m-m: 25px;
+  --m-l: 30px;
+  --m-xl: 40px;
+}
+
+/* ----------- GENERAL STYLES ------------ */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  background-color: var(--baltic-sea);
+  color: var(--stack);
+}
+@media (max-width: 1200px) {
+  .container:not(#demand) {
+    padding-left: 32px;
+    padding-right: 32px;
+  }
+}
+
+section {
+  padding-top: var(--m-top);
+  padding-bottom: var(--m-bottom);
+  height: 100vh;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+  color: var(--gravel);
+}
+
+ul {
+  list-style: none;
+}
+
+button {
+  outline: none;
+  border: none;
+  cursor: pointer;
+}
+
+.hidden {
+  display: none;
+}
+
+.main__button {
+  padding: 15px 25px;
+  background-color: var(--cardinal);
+  color: var(--white);
+  border-radius: 4px;
+  transition: 0.5 ease;
+}
+.main__button:hover {
+  background-color: #BC1A1D;
+}
+
+.main__link {
+  color: var(--white);
+  font-size: var(--font-size-page);
+  letter-spacing: 2px;
+}
+@media (max-width: 700px) {
+  .main__link {
+    font-size: var(--font-size-description);
+  }
+}
+
+.page__title {
+  color: var(--gravel);
+  font-size: var(--font-size-title);
+  margin-bottom: var(--m-xl);
+  text-align: center;
+}
+
+.darker {
+  background-color: var(--concrete);
+  padding-bottom: var(--m-bottom);
+  padding-top: var(--m-top);
+}
+
+.input {
+  padding: 13px 13px 13px 13px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--bon-jour);
+  font-size: var(--font-size-description);
+  display: block;
+  margin-bottom: 11px;
+}
+.input::-moz-placeholder {
+  color: var(--stack);
+}
+.input:-ms-input-placeholder {
+  color: var(--stack);
+}
+.input::placeholder {
+  color: var(--stack);
+}
+
+.navbar__wrap {
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 1200px) {
+  .navbar__wrap {
+    gap: 32px;
+    font-size: 14px;
+  }
+}
+.navbar__logo {
+  z-index: 10;
+  margin-bottom: -20px;
+}
+.navbar__list {
+  display: flex;
+  justify-content: space-around;
+}
+.navbar__menu {
+  display: flex;
+  align-items: center;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+.navbar__item {
+  position: relative;
+}
+.navbar__item:not(:last-child) {
+  margin-right: 72px;
+}
+@media (max-width: 1200px) {
+  .navbar__item:not(:last-child) {
+    margin-right: 42px;
+  }
+}
+.navbar__item::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -2px;
+  width: 100%;
+  height: 2px;
+  background-color: #fc2f70;
+  transform-origin: center;
+  transform: translate(-50%, 0) scaleX(0);
+  transition: transform 0.3s ease-in-out;
+}
+.navbar__item:hover::before {
+  transform: translate(-50%, 0) scaleX(1);
+}
+.navbar__contacts {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  color: var(--gravel);
+  font-weight: 700;
+}
+@media (max-width: 900px) {
+  .navbar__contacts {
+    display: none;
+  }
+}
+.navbar__phone, .navbar__email {
+  display: flex;
+  align-items: center;
+}
+.navbar__phone-icon, .navbar__email-icon {
+  font-size: 24px;
+  margin-right: var(--m-m);
+  display: flex;
+  align-items: center;
+}
+.navbar__mobile {
+  display: flex;
+  align-items: center;
+}
+.navbar__toggle {
+  color: var(--white);
+  display: none;
+}
+@media (max-width: 720px) {
+  .navbar__toggle {
+    display: inline-block;
+    color: var(--charade);
+  }
+}
+.navbar__close {
+  color: var(--white);
+  display: none;
+}
+@media (max-width: 720px) {
+  .navbar__close {
+    display: inline-block;
+    color: var(--charade);
+  }
+}
+@media (max-width: 700px) {
+  .navbar .navbar__menu {
+    position: fixed;
+    background-color: var(--white);
+    width: 80%;
+    height: 100vh;
+    top: 0;
+    right: -100%;
+    padding: 4rem 0rem 4rem 3rem;
+    border-radius: 1rem 0 0 1rem;
+    transition: 0.3s;
+    z-index: 100;
+  }
+  .navbar .navbar__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: 1rem;
+  }
+  .navbar .navbar__toggle {
+    display: inline-flex;
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+  }
+  .navbar .navbar__close {
+    font-size: 1.8rem;
+    position: absolute;
+    top: 1rem;
+    right: 1.25rem;
+    z-index: 101;
+    display: none;
+    cursor: pointer;
+  }
+  .navbar .show-menu {
+    right: 0;
+  }
+}
+
+.demand__container {
+  display: flex;
+  justify-content: center;
+}
+.demand__card {
+  background-color: var(--white);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 32px;
+  width: 500px;
+}
+@media (max-width: 700px) {
+  .demand__card {
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+.demand__title {
+  font-size: var(--font-size-demand);
+  color: var(--cardinal);
+  font-weight: 600;
+  margin-bottom: var(--m-s);
+}
+.demand__form-wrap {
+  display: flex;
+  gap: 11px;
+}
+.demand__form-content {
+  height: 120px;
+}
+.demand__form-button {
+  width: 100%;
+}/*# sourceMappingURL=style.css.map */
